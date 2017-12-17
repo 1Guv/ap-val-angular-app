@@ -1,0 +1,17 @@
+body {
+  background-color: white;
+}
+
+.type-list {
+  font-size: 10px;
+  color: blue;
+}
+
+.type-list li {
+  list-style: none;
+}
+
+label {
+  width: 800px;
+  display: inline-block;
+}
