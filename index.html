@@ -14,115 +14,126 @@
 
     <div layout="column" layout-align="center center">
 
-      <div layout="row" layout-align="center center">
-        <!-- <h6>APNAPLATES VALUATION 1.0</h6> -->
-        <img src="./img/logo_large.jpg" alt="www.APNAPLATES.com" style="width: 20%">
-      </div>
-
-      <md-input-container>
-          <label>What is the plate</label>
-          <input ng-model="input.plate">
-      </md-input-container>
-
-      <md-input-container>
-        <label>Registration Type</label>
-        <md-select ng-model="selectedRegType" md-selected-text="getSelectedTextForRegType()" ng-change="showRegType()">
-          <md-optgroup label="Reg Type">
-            <md-option ng-value="regType" ng-repeat="regType in regTypes">{{regType}}</md-option>
-          </md-optgroup>
-        </md-select>
-      </md-input-container>
-
-      <md-input-container ng-hide="!myPlateIsCurrent">
-        <label>Current Reg Dates</label>
-        <md-select ng-model="selectedRegYear" md-selected-text="">
-          <md-optgroup label="Current">
-            <md-option ng-value="regYear" ng-repeat="regYear in regYears.current">{{regYear}}</md-option>
-          </md-optgroup>
-        </md-select>
-        <p>
-          <a href="http://dvlaregistrations.direct.gov.uk/" target="blank">DVLA</a>
-          <br>
-          <small>find the original price</small>
-        </p>
-      </md-input-container>
-
-      <md-input-container ng-hide="!myPlateIsPrefix">
-        <label>Prefix Reg Dates</label>
-        <md-select ng-model="selectedRegYear" md-selected-text="">
-
-          <md-optgroup label="Prefix">
-            <md-option ng-value="regYear" ng-repeat="regYear in regYears.prefix">{{regYear}}</md-option>
-          </md-optgroup>
-
-        </md-select>
-      </md-input-container>
-
-
-      <md-input-container ng-hide="!myPlateIsSuffix">
-        <label>Suffix Reg Dates</label>
-        <md-select ng-model="selectedRegYear" md-selected-text="">
-
-          <md-optgroup label="Suffix">
-            <md-option ng-value="regYear" ng-repeat="regYear in regYears.suffix">{{regYear}}</md-option>
-          </md-optgroup>
-
-        </md-select>
-      </md-input-container>
-
-      <md-input-container ng-hide="!myPlateIsDateless">
-        <div>
-          <label>Auction sold year</label>
-          <input ng-model="selectedRegYear">
+      <section layout="column" layout-align="center center">
+        <div layout="row" layout-align="center center">
+          <img src="./img/logo_large.jpg" alt="www.APNAPLATES.com" style="width: 20%">
         </div>
-        <p>
-          <a href="http://dvlaregistrations.direct.gov.uk/search/previous-auction-plates.html" target="blank">Auction Sold Search</a>
-          <br>
-          <small>find the AUCTION price</small>
-        </p>
-      </md-input-container>
 
-    <!-- <md-input-container layout="row">
-      <div flex="50">
-        <label>What year was the plate issued?</label>
-        <input ng-model="input.plateIssued">
-      </div>
-    </md-input-container> -->
+        <div layout="row" layout-align="center center">
+          <h6>APNAPLATES VALUATION 1.0</h6>
+        </div>
 
-    <md-input-container layout="row">
-      <div flex="50">
-        <label>Original price - from DVLA?</label>
-        <input ng-model="input.originalPrice">
-      </div>
-    </md-input-container>
+        <md-input-container>
+            <label>What is the plate</label>
+            <input ng-model="input.plate">
+        </md-input-container>
 
-    <md-button class="md-raised md-primary" ng-click="plateFormula()">SUBMIT</md-button>
+        <md-input-container>
+          <label>Registration Type</label>
+          <md-select ng-model="selectedRegType" md-selected-text="getSelectedTextForRegType()" ng-change="showRegType()">
+            <md-optgroup label="Reg Type">
+              <md-option ng-value="regType" ng-repeat="regType in regTypes">{{regType}}</md-option>
+            </md-optgroup>
+          </md-select>
+        </md-input-container>
 
-    <!-- <p>Plate: {{input.plate | uppercase}}</p>
-    <p>Plate Type: {{input.plateType}}</p>
-    <p>Plate issued on: {{input.plateIssued}}</p>
-    <p>Original Price: {{input.originalPrice | currency:'£'}}</p>
-    <p>Current Date: {{currentDate}}</p>
-    <p>Age in years: {{currentDate - input.plateIssued}}</p>
-    <p><b>Valuation is: {{result | currency:'£'}}</b></p>
-    <p></p> -->
+        <md-input-container ng-hide="!myPlateIsCurrent">
+          <label>Current Reg Dates</label>
+          <md-select ng-model="selectedRegYear" md-selected-text="">
+            <md-optgroup label="Current">
+              <md-option ng-value="regYear" ng-repeat="regYear in regYears.current">{{regYear}}</md-option>
+            </md-optgroup>
+          </md-select>
+          <p>
+            <a href="http://dvlaregistrations.direct.gov.uk/" target="blank">DVLA</a>
+            <br>
+            <small>find the original price</small>
+          </p>
+        </md-input-container>
 
-    <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
-      <md-card-title>
-        <md-card-title-text>
-          <span class="md-headline">Your number plate <br> {{input.plate | uppercase}} <br> is worth <br> {{result | currency:'£'}}</span>
-          <span class="md-subhead" layout-align>www.APNAPLATES.com Valuation</span>
-        </md-card-title-text>
-      </md-card-title>
-      <md-card-content>
-        <p>Plate: {{input.plate | uppercase}}</p>
-        <p>Plate Type: {{input.plateType}}</p>
-        <p>Plate issued on: {{input.plateIssued}}</p>
-        <p>Original Price: {{input.originalPrice | currency:'£'}}</p>
-        <p>Current Date: {{currentDate}}</p>
-        <p>Age in years: {{currentDate - input.plateIssued}}</p>
-      </md-card-content>
-    </md-card>
+        <md-input-container ng-hide="!myPlateIsPrefix">
+          <label>Prefix Reg Dates</label>
+          <md-select ng-model="selectedRegYear" md-selected-text="">
+
+            <md-optgroup label="Prefix">
+              <md-option ng-value="regYear" ng-repeat="regYear in regYears.prefix">{{regYear}}</md-option>
+            </md-optgroup>
+
+          </md-select>
+        </md-input-container>
+
+
+        <md-input-container ng-hide="!myPlateIsSuffix">
+          <label>Suffix Reg Dates</label>
+          <md-select ng-model="selectedRegYear" md-selected-text="">
+
+            <md-optgroup label="Suffix">
+              <md-option ng-value="regYear" ng-repeat="regYear in regYears.suffix">{{regYear}}</md-option>
+            </md-optgroup>
+
+          </md-select>
+        </md-input-container>
+
+        <md-input-container ng-hide="!myPlateIsDateless">
+          <div>
+            <label>Auction sold year</label>
+            <input ng-model="selectedRegYear">
+          </div>
+          <p>
+            <a href="http://dvlaregistrations.direct.gov.uk/search/previous-auction-plates.html" target="blank">Auction Sold Search</a>
+            <br>
+            <small>find the AUCTION price</small>
+          </p>
+        </md-input-container>
+
+        <!-- <md-input-container layout="row">
+          <div flex="50">
+            <label>What year was the plate issued?</label>
+            <input ng-model="input.plateIssued">
+          </div>
+        </md-input-container> -->
+
+        <md-input-container layout="row">
+          <div flex="50">
+            <label>Original price - from DVLA?</label>
+            <input ng-model="input.originalPrice">
+          </div>
+        </md-input-container>
+
+        <md-button class="md-raised md-primary" ng-click="plateFormula()">SUBMIT</md-button>
+      </section>
+
+      <!-- <p>Plate: {{input.plate | uppercase}}</p>
+      <p>Plate Type: {{input.plateType}}</p>
+      <p>Plate issued on: {{input.plateIssued}}</p>
+      <p>Original Price: {{input.originalPrice | currency:'£'}}</p>
+      <p>Current Date: {{currentDate}}</p>
+      <p>Age in years: {{currentDate - input.plateIssued}}</p>
+      <p><b>Valuation is: {{result | currency:'£'}}</b></p>
+      <p></p> -->
+
+      <section>
+        <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+          <md-card-title>
+            <md-card-title-text>
+              <span class="md-headline">{{input.plate | uppercase}}</span>
+              <span class="md-headline">{{result | currency:'£'}}</span>
+            </md-card-title-text>
+          </md-card-title>
+          <md-card-content>
+            <p>Plate: {{input.plate | uppercase}}</p>
+            <p>Plate Type: {{input.plateType}}</p>
+            <p>Plate issued on: {{input.plateIssued}}</p>
+            <p>Original Price: {{input.originalPrice | currency:'£'}}</p>
+            <p>Current Date: {{currentDate}}</p>
+            <p>Age in years: {{currentDate - input.plateIssued}}</p>
+          </md-card-content>
+        </md-card>
+      </section>
+
+      <section>
+        <a href="http://www.reliablecounter.com" target="_blank"><img src="http://www.reliablecounter.com/count.php?page=www.apnaplates.com/val2/&digit=style/plain/6/&reloads=0" alt="" title="" border="0"></a><br /><a href="http://Garmin-forerunner.com" target="_blank" style="font-family: Geneva, Arial; font-size: 9px; color: #330010; text-decoration: none;">Garmin</a>
+      </section>
 
     </div>
 
